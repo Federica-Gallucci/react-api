@@ -1,4 +1,6 @@
 import axios from "axios";
+
+import Cardlist from "../CardList";
 import { useState, useEffect } from "react";
 const apiBaseUrl = `https://lanciweb.github.io/demo/api/actresses/`;
 
@@ -25,24 +27,7 @@ export default function Main() {
     <main>
       <h1>Lista Attrici</h1>
       {/* <p>{JSON.stringify(actresses)}</p> */}
-      <div className="row row-cols-4 gap-3">
-        {actresses.map((actress) => {
-          return (
-            <div className="container">
-              <div className="card h-100">
-                <div className="card-header">{actress.name}</div>
-                <div className="card-body">
-                  <img src={actress.image} alt={actress.name} />
-                  <p>{actress.birth_year}</p>
-                  <p>{actress.nationality}</p>
-                  <p>{actress.biography}</p>
-                  <p>{actress.awards}</p>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <Cardlist actresses={actresses} />
     </main>
   );
 }
